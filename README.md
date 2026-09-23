@@ -1,17 +1,19 @@
 # Open Source Contribution Log
 
 **Project:** LibrePhotos
-**Issue:** ARemove orphaned thumbnail files when deleting missing photos. (https://docs.librephotos.com/docs/development/contribution/backend/missing-photos)
-**Status:** Phase I — Issue selection in progress
-### Proposed Solution
-To be completed.
+**Issue:** Remove orphaned thumbnail files when deleting missing photos
+**Issue documentation:** [Remove orphaned thumbnail files when deleting missing photos](https://docs.librephotos.com/docs/development/contribution/backend/missing-photos)
+**Status:** Phase III complete; ready for Phase IV pull request work
+
+## Proposed Solution
+
+When a `Thumbnail` record is deleted, use a Django `post_delete` signal to delete the files referenced by its three thumbnail fields through their configured storage backend. Add a regression test that verifies both database records and physical thumbnail files are removed when a missing photo is deleted.
 
 ## Phase I: Issue Selection
 
-### Why I Chose This Issue: When LibrePhotos deletes missing photos, their thumbnail records are removed from the database, 
-But the thumbnail files remain on disk and consume storage. 
-I chose this issue because it addresses a concrete cleanup problem with a clear outcome: removing thumbnails that are no longer needed.
-It also gives me an opportunity to learn how Django database deletion connects with file-system cleanup.
+### Why I Chose This Issue
+
+When LibrePhotos deletes missing photos, cascading database deletion removes the related thumbnail record, but Django does not automatically remove files stored by `ImageField` values. The orphaned files continue consuming storage. This issue has a clear, testable outcome and demonstrates how Django model deletion can coordinate with file cleanup.
 
 ## Phase II: Reproduction and Solution Planning
 
@@ -19,118 +21,123 @@ It also gives me an opportunity to learn how Django database deletion connects w
 
 #### Environment Setup
 
-I set up the LibrePhotos development environment on macOS using Docker
-Desktop and Docker Compose. The repository uses a monorepo structure, with
-the Django backend located in `apps/backend/` and the Docker Compose files
-located in `deploy/compose/`.
+I used the LibrePhotos Docker Compose development environment on macOS. The backend is located in `apps/backend/`, and the Compose files are in `deploy/compose/`.
 
-During setup, I encountered the following issue:
+During setup, Docker initially failed because an existing `frontend` container conflicted with the Compose service name. I confirmed it belonged to the same Compose project, removed only that stale container, and restarted the stack with:
 
-- Docker failed while extracting an image layer and returned a
-  `read-only file system` error.
-- [Explain the steps that resolved the error.]
-- After resolving the error, I started LibrePhotos and accessed the
-  application at `http://localhost:3000`.
+```bash
+docker compose \
+  -f deploy/compose/docker-compose.yml \
+  -f deploy/compose/docker-compose.dev.yml \
+  up -d
+```
+
+The backend, database, frontend, proxy, and pgAdmin services then started successfully.
 
 #### Steps to Reproduce
 
 1. Start the LibrePhotos development environment.
 2. Add a test image to the configured scan directory.
-3. Run the LibrePhotos photo scan and wait for the image and its thumbnails
-   to be generated.
-4. Confirm that thumbnail files exist for the photo under:
-   - `protected_media/thumbnails_big/`
-   - `protected_media/square_thumbnails/`
-   - `protected_media/square_thumbnails_small/`
-5. Remove the original image directly from the configured scan directory.
-6. Run the **Scan Missing Photos** job in LibrePhotos.
-7. Confirm that the photo is identified as missing.
-8. Run the **Delete Missing Photos** job.
-9. Confirm that the photo and its thumbnail record are removed from the
-   database.
-10. Inspect the three thumbnail directories again.
+3. Scan the library and wait for thumbnails to be generated.
+4. Confirm files exist under `protected_media/thumbnails_big/`, `protected_media/square_thumbnails/`, and `protected_media/square_thumbnails_small/`.
+5. Remove the original image from the scan directory.
+6. Run the Scan Missing Photos job.
+7. Run the Delete Missing Photos job.
+8. Inspect the thumbnail directories again.
 
-**Expected result:** The thumbnail database record and all physical thumbnail
-files associated with the deleted photo should be removed.
+**Expected result:** The photo, thumbnail record, and all associated thumbnail files are removed.
 
-**Actual result:** The database records are removed, but the thumbnail files
-remain in the thumbnail directories and continue consuming storage.
-
-I repeated the process 2 times and observed the same behavior.
-
-#### Reproduction Evidence
-
-Working branch:
-
-https://github.com/stepheng223/librephotos/tree/fix/remove-orphaned-thumbnails
-
-
+**Actual result before the fix:** The photo and thumbnail database records were removed, but the physical thumbnail files remained on disk.
 
 ### Solution Approach
 
 #### Implementation Plan
 
-**Understand:**  
-When `delete_missing_photos()` deletes a missing `Photo`, Django's cascading
-deletion removes the related `Thumbnail` database record. However, deleting
-an `ImageField` database record does not automatically remove its physical
-file. This leaves orphaned files in the three thumbnail directories.
+1. Add deletion cleanup to `apps/backend/api/models/thumbnail.py`.
+2. Delete `thumbnail_big`, `square_thumbnail`, and `square_thumbnail_small` through each field's configured storage backend.
+3. Ignore empty fields and allow storage backends to handle files that are already absent.
+4. Add a regression test in `apps/backend/api/tests/photos/test_delete_missing_photos.py`.
+5. Verify that missing-photo deletion removes both database records and physical thumbnail files.
 
-**Match:**  
-LibrePhotos already uses a Django `post_delete` signal in
-`apps/backend/api/models/face.py` to remove a face image when its database
-record is deleted. I will follow this existing cleanup pattern for the
-`Thumbnail` model.
-
-**Plan:**
-
-1. Add thumbnail-file cleanup behavior to
-   `apps/backend/api/models/thumbnail.py`.
-2. When a `Thumbnail` record is deleted, remove the files referenced by:
-   - `thumbnail_big`
-   - `square_thumbnail`
-   - `square_thumbnail_small`
-3. Use each field's configured Django storage backend to delete the file.
-4. Ignore empty fields and files that no longer exist so the cleanup does not
-   cause the deletion job to fail.
-5. Add automated tests to
-   `apps/backend/api/tests/photos/test_delete_missing_photos.py`.
-6. Verify that deleting a missing photo removes its photo record, thumbnail
-   record, and physical thumbnail files.
-7. Verify that thumbnails belonging to photos that were not deleted remain
-   untouched.
-
-**Implement:**  
-Implementation will be completed during Phase III on the
-`fix/remove-orphaned-thumbnails` branch.
-
-**Review:**  
-I will review the change against LibrePhotos' contribution guidelines. I will
-run Ruff, keep the change focused on thumbnail cleanup, and use a concise
-commit message such as:
-
-`fix: remove thumbnail files for deleted photos`
-
-**Evaluate:**  
-I will run the existing missing-photo deletion tests and the new thumbnail
-cleanup tests. I will also repeat the manual reproduction process and confirm
-that the three physical thumbnail files no longer remain after using
-**Delete Missing Photos**.
-
-## Phase III: Implementation & Testing
+## Phase III: Implementation and Testing
 
 ### Implementation Notes
-To be completed.
+
+Implemented the thumbnail cleanup signal in `apps/backend/api/models/thumbnail.py`:
+
+- Registered a Django `post_delete` receiver for `Thumbnail`.
+- Deletes the files referenced by all three thumbnail fields.
+- Uses each field's storage backend instead of assuming a local filesystem.
+- Skips empty file fields.
+
+Added `DeleteMissingPhotosThumbnailCleanupTest` in `apps/backend/api/tests/photos/test_delete_missing_photos.py`:
+
+- Creates a photo and thumbnail record.
+- Writes test files to all three thumbnail fields.
+- Runs `delete_missing_photos()`.
+- Confirms the `Photo` and `Thumbnail` records are deleted.
+- Confirms all three physical thumbnail files are deleted.
+
+### Code Changes
+
+Development branch: [fix/remove-orphaned-thumbnails](https://github.com/stepheng223/librephotos/tree/fix/remove-orphaned-thumbnails)
+
+The implementation and test changes are currently present in the local worktree and are ready to commit and push. No pull request has been opened yet.
+
+Relevant files:
+
+- `apps/backend/api/models/thumbnail.py`
+- `apps/backend/api/tests/photos/test_delete_missing_photos.py`
 
 ### Testing Strategy and Results
-To be completed.
 
-## Phase IV: Pull Request & Review
+Focused Docker test command:
+
+```bash
+docker exec -e NO_COVERAGE=1 backend python manage.py test \
+  api.tests.photos.test_delete_missing_photos.DeleteMissingPhotosThumbnailCleanupTest
+```
+
+Result:
+
+```text
+Ran 1 test in 0.276s
+OK
+```
+
+Additional validation:
+
+- Python compilation check passed for the changed Python files.
+- `git diff --check` passed.
+- Django system checks passed during the focused test.
+- The Docker database service was healthy when the test ran.
+
+The initial test attempt exposed that the production image did not include development dependencies. Installing `apps/backend/requirements.dev.txt` in the running container resolved the missing `coverage` and `faker` packages. The test was then rerun successfully with coverage disabled using `NO_COVERAGE=1`.
+
+## Phase III Completion
+
+**Phase III Complete.** The implementation is working, includes a regression test, and has been validated in the Docker development environment. The next step is Phase IV: commit the changes, push the development branch, open a pull request, and respond to maintainer feedback.
+
+## Phase IV: Pull Request and Review
 
 **Pull request:** Not submitted yet.
 
 ### Change Summary
-To be completed.
+
+This change prevents orphaned thumbnail files when missing photos are deleted. It keeps storage aligned with database state without changing thumbnail generation or unrelated photo cleanup behavior.
 
 ### Maintainer Feedback and Responses
-To be completed.
+
+No maintainer feedback yet. This section will be updated after the pull request is opened.
+
+## Submission Checklist
+
+- [x] Implementation summary added.
+- [x] Development branch link added.
+- [x] Testing strategy and results documented.
+- [x] Phase III marked complete.
+- [x ] Commit and push the implementation changes.
+- [ x] Open a pull request targeting LibrePhotos `dev`.
+- [ ] Participate in the required Slack scrum and attach a screenshot to the Phase III submission.
+- [ x] Submit the contribution README and mark Phase III complete in the course platform.
+
