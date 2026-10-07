@@ -251,13 +251,13 @@ GitHub's API showed no issue comments or formal PR reviews when checked October 
 
 ### PR Description and Acceptance Evidence
 
-The live PR description is empty. A reviewable proposed description is saved in [PR-2078-DESCRIPTION.md](PR-2078-DESCRIPTION.md); it has not been posted to GitHub. No numbered issue was established for the original documentation TODO, so no unrelated `Closes #...` reference is claimed. Resolve the issue-reference requirement with the course staff rather than link this merged change to email-validation #695.
+The substantive description was published and verified on [PR #2078](https://github.com/LibrePhotos/librephotos/pull/2078) on October 6, 2026. Its local source is [PR-2078-DESCRIPTION.md](PR-2078-DESCRIPTION.md). No numbered issue was established for the original documentation TODO, so no unrelated `Closes #...` reference is claimed. Resolve the issue-reference requirement with the course staff rather than link this merged change to email-validation #695.
 
 - [x] PR exists, is not a draft, and merged into the upstream default branch.
 - [x] Student implementation and new test identified by commit.
 - [x] Final approach and maintainer-authored changes documented.
 - [x] Previously recorded focused backend test output included in Phase III.
-- [ ] Publish a substantive PR description with the project's required template.
+- [x] Published a substantive PR description with problem context, changes, issue-reference limitation, acceptance checklist, and backend evidence. No project PR template was found in the inspected checkout.
 - [ ] Establish a valid issue reference for the thumbnail task if required for resubmission.
 - [x] Full backend suite and Ruff style checks passed for the final PR head; CI links recorded above.
 - [ ] Add evidence of an actual reviewer request or maintainer mention if required; merge alone does not prove this happened.
@@ -286,7 +286,7 @@ Verified on October 6, 2026: public contribution repo and fork, substantive phas
 Still requiring evidence or action:
 
 - Original numbered issue and introductory comment: absent; request course guidance for this merged documentation-TODO contribution.
-- PR description: empty on GitHub; local draft is ready but not published.
+- PR description: published and verified October 6, 2026; the no-breaking-changes checkbox remains pending explicit verification.
 - Historical student commit cadence: cannot be created retroactively.
 - Reviewer mention/request and Slack participation: no evidence supplied; do not claim these occurred.
 - Course Google Sheet and Phase I/II/IV check-ins: require confirmation or submission in the course accounts. The supplied Phase III review already awards its check-in.

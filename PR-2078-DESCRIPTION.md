@@ -1,6 +1,6 @@
-# Proposed description for PR #2078
+# Published description for PR #2078
 
-This is a local draft for the already-merged PR, not evidence that its description has been updated.
+The body below was published and verified on PR #2078 on October 6, 2026.
 
 ## Why
 
