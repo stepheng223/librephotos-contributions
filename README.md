@@ -10,6 +10,8 @@
 **Pull request:** [#2078](https://github.com/LibrePhotos/librephotos/pull/2078)
 **Last verified:** October 6, 2026
 
+**Grading evidence:** [Criterion-by-criterion rubric map](RUBRIC-EVIDENCE.md), including verified evidence and outstanding requirements for Units 1–4.
+
 ## Proposed Solution
 
 The initial implementation used a Django `post_delete` signal and field storage deletion. The merged implementation defers cleanup until transaction commit, protects files still referenced by other thumbnails or photos, and reuses the project’s `delete_thumbnail_files(image_hash)` helper. See Phase IV for the change in approach and attribution.
@@ -126,7 +128,8 @@ Finding: fix commit `44080a45` is dated September 23, 2026; its parent lacks the
 - [x] Understand, Match, Plan, Review, and Evaluate sections documented.
 - [x] Stretch evidence added: analogous receiver, history inspection, and proactive edge-case analysis.
 - [ ] Confirm which issue the course-approved Phase II submission follows.
-- [ ] Push the revised documentation and submit the matching repository link in the Course Portal with **Phase II Complete** selected.
+- [x] Revised documentation pushed to the contribution repository.
+- [ ] Submit the matching repository link in the Course Portal with **Phase II Complete** selected.
 
 #### Implementation Plan
 
@@ -261,7 +264,8 @@ The substantive description was published and verified on [PR #2078](https://git
 - [ ] Establish a valid issue reference for the thumbnail task if required for resubmission.
 - [x] Full backend suite and Ruff style checks passed for the final PR head; CI links recorded above.
 - [ ] Add evidence of an actual reviewer request or maintainer mention if required; merge alone does not prove this happened.
-- [ ] Push this README and submit the course check-in with **Phase IV Complete** selected.
+- [x] Revised README pushed to the contribution repository.
+- [ ] Submit the course check-in with **Phase IV Complete** selected.
 
 ## Learnings & Reflections
 
