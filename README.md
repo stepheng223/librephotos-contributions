@@ -5,6 +5,7 @@
 **Project fork:** [stepheng223/librephotos](https://github.com/stepheng223/librephotos)
 **Project:** [LibrePhotos](https://github.com/LibrePhotos/librephotos)
 **Issue:** Remove orphaned thumbnail files when deleting missing photos
+**Related GitHub issue:** [#19 — Manage photos](https://github.com/LibrePhotos/librephotos/issues/19) (historical context; closed)
 **Issue documentation:** [Remove orphaned thumbnail files when deleting missing photos](https://docs.librephotos.com/docs/development/contribution/backend/missing-photos)
 **Status:** PR merged; Phase IV course check-in pending confirmation
 **Pull request:** [#2078](https://github.com/LibrePhotos/librephotos/pull/2078)
@@ -21,6 +22,8 @@ The initial implementation used a Django `post_delete` signal and field storage 
 ## Phase I: Issue Selection
 
 ### Phase I Evidence
+
+Related issue #19 describes original-photo deletion leaving thumbnail/database data behind. PR #2078 addresses the narrower orphaned-thumbnail cleanup problem. This reference was identified during the submission audit; it is not confirmed as the original selected issue, and its broader photo-management request is not claimed as resolved by this PR.
 
 The contribution repository and project fork are public. The task originated in a documentation TODO; a live numbered issue and introductory issue comment were not established. This historical Phase I gap remains even though the contribution merged; email-validation #695 must not be used as its issue reference. Course staff must confirm whether the merged contribution satisfies the original issue-selection requirement.
 

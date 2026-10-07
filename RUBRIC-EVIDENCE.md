@@ -4,6 +4,8 @@ This maps the supplied grading criteria to the current submission. “Supported�
 
 ## Unit 1
 
+Closest related historical issue: [#19 — Manage photos](https://github.com/LibrePhotos/librephotos/issues/19), which mentions thumbnail/database data remaining after original-photo deletion. It is closed and broader than PR #2078, so it provides context rather than proving an originally open, claimable issue or a valid Closes reference.
+
 | Criterion | Evidence / remaining action |
 | --- | --- |
 | Professional username | Supported: README header identifies `stepheng223`. |
