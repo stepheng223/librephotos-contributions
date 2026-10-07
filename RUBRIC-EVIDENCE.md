@@ -1,6 +1,6 @@
 # Rubric evidence for resubmission
 
-This maps the supplied grading criteria to the current submission. “Supported” means evidence is present, not that the grader has awarded credit. Original-deadline requirements may still require staff approval for a late resubmission.
+This maps the supplied grading criteria to the current submission. “Supported” means evidence is present, not that the grader has awarded credit. The contributor confirms edits are accepted and Slack posting is not required. Historical evidence is still attributed accurately.
 
 ## Unit 1
 
@@ -48,7 +48,7 @@ This maps the supplied grading criteria to the current submission. “Supported�
 | New test | Supported: student cleanup regression in commit 44080a45. |
 | Existing suite passes | Supported: final-head Django CI runs python manage.py test api.tests successfully. |
 | Project test conventions | Supported: Django TestCase and existing create_test_user/create_test_photo helpers. |
-| Slack in preceding seven days | Needs an actual dated post/permalink or screenshot. |
+| Slack in preceding seven days | Optional stretch item in the supplied rubric; contributor confirms posting is not required. No post or participation credit is claimed. |
 | Engineering judgment | Supported: factory reuse, final-plan attribution, transactional/shared-asset lessons and edge cases. |
 
 ## Unit 4
@@ -68,7 +68,3 @@ This maps the supplied grading criteria to the current submission. “Supported�
 | Phase IV check-in | Needs course-account submission with Phase IV Complete selected. |
 | Reviewer mentioned/requested | No evidence. Maintainer merge establishes engagement but does not establish the requested mention/assignment action. |
 | Stretch: open-source loop or teachable insight | Supported: merged PR and concrete transaction/shared-file lesson; final changes attributed to their authors. |
-
-## Course message to send yourself
-
-> My contribution merged as https://github.com/LibrePhotos/librephotos/pull/2078 into upstream dev, and the final PR head passed the full backend suite and Ruff checks. I updated https://github.com/stepheng223/librephotos-contributions with the PR description, phase evidence, and reflections. The original task came from a documentation TODO rather than a numbered issue. Can you confirm how to handle the original issue/intro-comment and Closes-reference requirements for this merged contribution, the repository naming deduction, and eligibility for resubmission?

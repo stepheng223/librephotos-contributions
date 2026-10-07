@@ -10,6 +10,8 @@
 **Pull request:** [#2078](https://github.com/LibrePhotos/librephotos/pull/2078)
 **Last verified:** October 6, 2026
 
+**Course submission guidance:** Edits are accepted. Slack posting is not required, as confirmed by the contributor.
+
 **Grading evidence:** [Criterion-by-criterion rubric map](RUBRIC-EVIDENCE.md), including verified evidence and outstanding requirements for Units 1–4.
 
 ## Proposed Solution
@@ -292,7 +294,8 @@ Still requiring evidence or action:
 - Original numbered issue and introductory comment: absent; request course guidance for this merged documentation-TODO contribution.
 - PR description: published and verified October 6, 2026; the no-breaking-changes checkbox remains pending explicit verification.
 - Historical student commit cadence: cannot be created retroactively.
-- Reviewer mention/request and Slack participation: no evidence supplied; do not claim these occurred.
+- Reviewer mention/request: no evidence supplied; do not claim it occurred.
+- Slack participation: not required under the contributor’s confirmed course guidance; no post is claimed.
 - Course Google Sheet and Phase I/II/IV check-ins: require confirmation or submission in the course accounts. The supplied Phase III review already awards its check-in.
 
 The code contribution is merged and CI verified. Coursework is not fully complete until the outstanding submission requirements are resolved.
