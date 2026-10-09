@@ -52,7 +52,7 @@ Five checks have supporting evidence, but the live-issue requirement remains unr
 | --- | --- |
 | GitHub account access | Verified through authenticated PR updates, the student maintainer comment, and repository pushes. |
 | CodePath Student Slack account and channel membership | Not confirmed. Joining the workspace/channel is separate from the contributor's previously confirmed exemption from Slack posting. |
-| Public contribution README with phase sections | Present: this repository and its Phase I–IV sections. Exact parity with the downloadable course template is not verified because that template was not supplied. |
+| Public contribution README with phase sections | Supported: this public repository contains all seven headers named in the supplied rubric: Why I Chose This Issue, Understanding the Issue, Reproduction Process, Solution Approach, Testing Strategy, Pull Request, and Learnings & Reflections. |
 | Live issue from the course list | Not established; request staff acceptance of the documentation TODO or guidance on satisfying this requirement. Related issue #19 is historical context only. |
 | Issue link and two-to-four-sentence selection summary | Four-sentence summary above; task documentation and historical related issue linked in the header. A valid selected live-issue link remains unestablished. |
 | Introductory interest comment on the chosen issue | Not established. The October 9 maintainer mention is on the merged PR and does not substitute for an original issue-interest comment. |
@@ -62,6 +62,14 @@ Five checks have supporting evidence, but the live-issue requirement remains unr
 | Slack milestone announcement | No post claimed. Contributor previously confirmed Slack posting is not required; the newly supplied general instructions include it, so retain confirmation of that individual exception if staff asks. |
 
 The Phase I documentation is filled in, but Phase I cannot be marked fully complete until the unresolved selection, course-account, and submission requirements are confirmed. Historical interest comments, timing, and candidate-selection activity must not be recreated as if they happened before the contribution.
+
+### Phase I Grading Feedback Follow-Up
+
+The supplied scoring breakdown already awards the professional username, full template structure, project fork, and selection rationale. The current four-sentence **Why I Chose This Issue** paragraph also supplies the previously missing problem summary: it states the orphaned-file defect, wasted disk space, Python/Django and testing skill match, transaction/signal learning goal, and concrete successful behavior. Specific model/job/test paths and the acceptance criteria in Phase II provide the stretch evidence.
+
+The repository is public, as the grader confirmed, but they separately deducted for its name. The supplied procedure gives example names rather than an exact required convention; `librephotos-contributions` identifies the project and purpose. Confirm the expected naming convention with course staff before changing the submitted repository URL. No naming exception or credit is claimed.
+
+The remaining issue-related deductions need a valid staff-approved task reference and original engagement evidence. This README does not claim that closed issue #19 was live and claimable, that the post-merge PR comment was an introductory issue comment, or that an unconfirmed course check-in was submitted.
 
 ## Phase II: Reproduction and Solution Planning
 

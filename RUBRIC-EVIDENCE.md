@@ -4,14 +4,14 @@ This maps the supplied grading criteria to the current submission. “Supported�
 
 ## Unit 1
 
-October 9 audit against the newly supplied Phase I procedure: README now includes all six issue-selection checks and a deliverable-by-deliverable audit. Five selection checks have supporting retrospective evidence; a live claimable course-list issue remains unestablished. CodePath Slack membership, the Google Sheet row comment, and the Phase I check-in are unconfirmed. The individual Slack-posting exemption does not establish workspace membership. The original downloadable README template was not supplied, so exact template parity is not claimed.
+October 9 audit against the supplied Phase I procedure and scoring breakdown: README includes all six issue-selection checks and a deliverable-by-deliverable audit. All seven template headers named in the scoring breakdown are present, and that criterion was already awarded. Five selection checks have supporting retrospective evidence; a live claimable course-list issue remains unestablished. CodePath Slack membership, the Google Sheet row comment, and the Phase I check-in are unconfirmed. The individual Slack-posting exemption does not establish workspace membership.
 
 Closest related historical issue: [#19 — Manage photos](https://github.com/LibrePhotos/librephotos/issues/19), which mentions thumbnail/database data remaining after original-photo deletion. It is closed and broader than PR #2078, so it provides context rather than proving an originally open, claimable issue or a valid Closes reference.
 
 | Criterion | Evidence / remaining action |
 | --- | --- |
 | Professional username | Supported: README header identifies `stepheng223`. |
-| Public, clearly named README repo | Public repository verified. Naming deduction remains: ask staff for the required convention before changing the submission URL. |
+| Public, clearly named README repo | Grader confirms the repository is public and loads. Naming deduction remains: the supplied procedure gives examples rather than an exact convention; ask staff what specific name is required before changing the submission URL. |
 | Full template structure | Supported: Why I Chose This Issue, Understanding the Issue, Reproduction Process, Solution Approach, Testing Strategy, Pull Request, Learnings & Reflections are present. |
 | Project fork | Supported: README links `stepheng223/librephotos`; PR source identifies the fork. |
 | Live claimable issue | Gap: thumbnail work originated in a documentation TODO. No matching numbered issue established. #695 is unrelated and cannot supply this credit. |
