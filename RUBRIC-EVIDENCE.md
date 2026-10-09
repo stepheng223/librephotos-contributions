@@ -4,6 +4,8 @@ This maps the supplied grading criteria to the current submission. “Supported�
 
 ## Unit 1
 
+October 9 audit against the newly supplied Phase I procedure: README now includes all six issue-selection checks and a deliverable-by-deliverable audit. Five selection checks have supporting retrospective evidence; a live claimable course-list issue remains unestablished. CodePath Slack membership, the Google Sheet row comment, and the Phase I check-in are unconfirmed. The individual Slack-posting exemption does not establish workspace membership. The original downloadable README template was not supplied, so exact template parity is not claimed.
+
 Closest related historical issue: [#19 — Manage photos](https://github.com/LibrePhotos/librephotos/issues/19), which mentions thumbnail/database data remaining after original-photo deletion. It is closed and broader than PR #2078, so it provides context rather than proving an originally open, claimable issue or a valid Closes reference.
 
 | Criterion | Evidence / remaining action |

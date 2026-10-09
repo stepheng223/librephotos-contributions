@@ -31,6 +31,38 @@ The contribution repository and project fork are public. The task originated in 
 
 When LibrePhotos deletes missing photos, database cascade removes thumbnail records but originally left their stored files behind, wasting disk space. I chose this bounded cleanup task to apply my documented Python/Django, Docker Compose, Git, and regression-testing work. My learning goal was to understand Django deletion signals and coordinate database changes with file cleanup. Success means removing assets only after committed deletion and only when no surviving photo still needs them.
 
+### Phase I Selection Checklist
+
+This is a retrospective assessment against the supplied Phase I instructions, recorded October 9, 2026. It does not establish that this checklist or a three-candidate comparison was completed before implementation.
+
+| Selection check | Assessment and evidence |
+| --- | --- |
+| Understand the problem | Supported: database deletion left thumbnail files on disk; success means removing true orphans while protecting surviving references. |
+| Scope fits four weeks | Supported: bounded thumbnail-model cleanup, regression tests, and documentation; PR #2078 merged September 26 after submission September 23. |
+| Matches skills or achievable learning | Supported: Python/Django, Docker Compose, Git, and regression testing are documented above; transaction and shared-file behavior supplied the learning goal. |
+| Active and claimable issue | Not established: upstream was actively maintained, but the task was a documentation TODO rather than a verified live, unclaimed issue from the course list. The work is now merged and cannot be claimed as a new task. |
+| Helpful context | Supported: missing-photo documentation, concrete model/job paths, and the analogous Face deletion receiver informed the investigation. |
+| Clear setup documentation | Supported: linked development-install instructions and the recorded Compose setup/reproduction process in Phase II. |
+
+Five checks have supporting evidence, but the live-issue requirement remains unresolved. Under the supplied decision rule, a four-to-five-check selection needs course guidance; the merged contribution does not by itself waive that requirement.
+
+### Phase I Deliverables Audit
+
+| Required deliverable | Status / evidence |
+| --- | --- |
+| GitHub account access | Verified through authenticated PR updates, the student maintainer comment, and repository pushes. |
+| CodePath Student Slack account and channel membership | Not confirmed. Joining the workspace/channel is separate from the contributor's previously confirmed exemption from Slack posting. |
+| Public contribution README with phase sections | Present: this repository and its Phase I–IV sections. Exact parity with the downloadable course template is not verified because that template was not supplied. |
+| Live issue from the course list | Not established; request staff acceptance of the documentation TODO or guidance on satisfying this requirement. Related issue #19 is historical context only. |
+| Issue link and two-to-four-sentence selection summary | Four-sentence summary above; task documentation and historical related issue linked in the header. A valid selected live-issue link remains unestablished. |
+| Introductory interest comment on the chosen issue | Not established. The October 9 maintainer mention is on the merged PR and does not substitute for an original issue-interest comment. |
+| Comment on the course Google Sheet issue row | Not confirmed; requires the course sheet and an appropriate staff-approved issue/task row. |
+| Project fork | Present: [stepheng223/librephotos](https://github.com/stepheng223/librephotos), also identified as the merged PR source. |
+| Check-in marked Phase I Complete | Not confirmed; requires submission or confirmation in the Course Portal. The current README status remains Merged to reflect the final contribution. |
+| Slack milestone announcement | No post claimed. Contributor previously confirmed Slack posting is not required; the newly supplied general instructions include it, so retain confirmation of that individual exception if staff asks. |
+
+The Phase I documentation is filled in, but Phase I cannot be marked fully complete until the unresolved selection, course-account, and submission requirements are confirmed. Historical interest comments, timing, and candidate-selection activity must not be recreated as if they happened before the contribution.
+
 ## Phase II: Reproduction and Solution Planning
 
 **Scope:** All phases in this README concern thumbnail cleanup, the contribution merged in PR #2078. Email-validation #695 was researched later as an alternative and is preserved in [EMAIL-VALIDATION-CANDIDATE.md](EMAIL-VALIDATION-CANDIDATE.md); it was not implemented in this PR.
