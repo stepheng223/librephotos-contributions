@@ -2,7 +2,7 @@
 
 The body below was published and verified on PR #2078 on October 6, 2026.
 
-Local revision on October 9, 2026: completed the compatibility checklist after inspecting the final PR diff. This revision has not been verified as published to GitHub.
+Revision published and verified through GitHub's API on October 9, 2026: completed the compatibility checklist after inspecting the final PR diff. The body below matches the live PR description.
 
 ## Why
 

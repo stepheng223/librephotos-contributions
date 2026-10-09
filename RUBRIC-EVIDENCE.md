@@ -61,12 +61,14 @@ Closest related historical issue: [#19 — Manage photos](https://github.com/Lib
 | PR template/structure | Published description contains Why, What does this PR do, Issue references, Acceptance criteria, evidence, and review status. No project PR template found in inspected checkout. |
 | Closes issue reference | Gap: no matching original numbered issue established. Do not use an unrelated issue or create a retroactive claim. |
 | Why before what | Supported: published description starts with problem and investigative context. |
-| Acceptance checklist fully completed | Local description checklist is complete: tests, protections, helper reuse, suite, style, and compatibility. October 9 final-diff inspection found no API/schema/dependency changes. Publication of the updated compatibility checkbox to GitHub is not yet verified. |
+| Acceptance checklist fully completed | Live PR description checklist is complete: tests, protections, helper reuse, suite, style, and compatibility. October 9 final-diff inspection found no API/schema/dependency changes; the completed checklist was published and verified through GitHub's API that day. |
 | Backend before/after evidence | Initial orphan behavior and focused output documented; final full-suite/style CI links published. |
 | README PR link, summary, status | Supported: #2078, cleanup summary, Merged label. |
 | Dated feedback/response log | Supported alternative evidence: explicitly records no formal comments/reviews, submission date, maintainer-authored changes, and merge. No student response commits invented. |
 | Three reflection subsections | Supported: Technical Skills Gained, Challenges Overcome, What I'd Do Differently. |
 | Internal consistency | Supported: all phases track thumbnail cleanup; immediate-storage plan versus final commit-safe hash cleanup is explained. #695 retained as a separate candidate. |
 | Phase IV check-in | Needs course-account submission with Phase IV Complete selected. |
-| Reviewer mentioned/requested | No evidence. Maintainer merge establishes engagement but does not establish the requested mention/assignment action. |
+| Reviewer mentioned/requested | Supported: [October 9 student comment](https://github.com/LibrePhotos/librephotos/pull/2078#issuecomment-6091218100) mentions @derneuere. This is post-merge outreach, not a historical review request. |
 | Stretch: open-source loop or teachable insight | Supported: merged PR and concrete transaction/shared-file lesson; final changes attributed to their authors. |
+
+Additional upstream evidence: [release 1.2.0](https://github.com/LibrePhotos/librephotos/releases/tag/1.2.0) credits stepheng223 for orphaned-thumbnail cleanup, verified October 9, 2026. This supports shipped contribution evidence; it does not supply a missing numbered issue.

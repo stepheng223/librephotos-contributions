@@ -9,7 +9,7 @@
 **Issue documentation:** [Remove orphaned thumbnail files when deleting missing photos](https://docs.librephotos.com/docs/development/contribution/backend/missing-photos)
 **Status:** PR merged; Phase IV course check-in pending confirmation
 **Pull request:** [#2078](https://github.com/LibrePhotos/librephotos/pull/2078)
-**Last verified:** October 6, 2026
+**Last verified:** October 9, 2026 (PR status, published acceptance checklist, maintainer mention, and release credit; earlier CI verification is dated below)
 
 **Course submission guidance:** Edits are accepted. Slack posting is not required, as confirmed by the contributor.
 
@@ -240,6 +240,8 @@ These are upstream CI results, verified through GitHub’s job/check APIs on Oct
 
 **Summary:** The PR cleans up orphaned thumbnail assets after photo deletion. The merged version waits until the transaction commits and protects shared assets before using the existing hash-based deletion helper.
 
+**Release evidence:** [LibrePhotos 1.2.0 release notes](https://github.com/LibrePhotos/librephotos/releases/tag/1.2.0) credit `stepheng223` for removing orphaned thumbnail files. Verified October 9, 2026.
+
 ### Change in Approach and Final Implementation
 
 The initial student commit [44080a45](https://github.com/LibrePhotos/librephotos/commit/44080a451b058f89b5f5ec570c8ccf4748b49135) introduced the receiver and a cleanup regression test. The final PR includes additional work authored by Niaz; these changes must not be attributed to the student:
@@ -257,9 +259,17 @@ Phase II's immediate field-storage deletion was the initial plan. The shipped ap
 
 GitHub's API showed no issue comments or formal PR reviews when checked October 6, 2026. Therefore there is no written feedback thread or student response commit to log. The contribution was submitted September 23 and subsequently revised through the Niaz-authored commits above, then merged by `derneuere` on September 26. This demonstrates maintainer engagement, but does not establish a prior reviewer request or student-authored revision loop.
 
+| Date | Activity / response | Evidence |
+| --- | --- | --- |
+| September 23, 2026 | Submitted initial implementation and regression test; no formal review feedback was established by the October 6 audit. | Student commit [44080a45](https://github.com/LibrePhotos/librephotos/commit/44080a451b058f89b5f5ec570c8ccf4748b49135). |
+| September 26, 2026 | Maintainer-authored improvements followed by merge; these are not student response commits. | Follow-up commits listed above and merge [28dd0b61](https://github.com/LibrePhotos/librephotos/commit/28dd0b61685102d243a91500035d2918310e11be). |
+| October 9, 2026 | Student mentioned `@derneuere`, thanked maintainers, documented the transactional/shared-reference lesson, and reported the completed acceptance checklist. | [Published maintainer mention](https://github.com/LibrePhotos/librephotos/pull/2078#issuecomment-6091218100). This occurred after merge, not as an original review request; no new maintainer response is claimed. |
+
 ### PR Description and Acceptance Evidence
 
 The substantive description was published and verified on [PR #2078](https://github.com/LibrePhotos/librephotos/pull/2078) on October 6, 2026. Its local source is [PR-2078-DESCRIPTION.md](PR-2078-DESCRIPTION.md). No numbered issue was established for the original documentation TODO, so no unrelated `Closes #...` reference is claimed. Resolve the issue-reference requirement with the course staff rather than link this merged change to email-validation #695.
+
+The completed compatibility checkbox was published to the live PR body and verified through GitHub's API on October 9, 2026. All acceptance checklist items in that description are now checked.
 
 - [x] PR exists, is not a draft, and merged into the upstream default branch.
 - [x] Student implementation and new test identified by commit.
@@ -269,7 +279,7 @@ The substantive description was published and verified on [PR #2078](https://git
 - [ ] Establish a valid issue reference for the thumbnail task if required for resubmission.
 - [x] Full backend suite and Ruff style checks passed for the final PR head; CI links recorded above.
 - [x] No breaking API or schema changes: inspected the final [PR file diff](https://github.com/LibrePhotos/librephotos/pull/2078/files) on October 9, 2026. The three changed files contain the thumbnail deletion receiver, regression tests, and missing-photo documentation; there are no migrations, model-field changes, endpoint changes, or dependency changes. The intended behavior change is removal of unreferenced thumbnail files after committed deletion. Existing full-suite CI evidence is linked in Phase III; this inspection is not a new test run.
-- [ ] Add evidence of an actual reviewer request or maintainer mention if required; merge alone does not prove this happened.
+- [x] Maintainer mentioned: [October 9 comment tagging `@derneuere`](https://github.com/LibrePhotos/librephotos/pull/2078#issuecomment-6091218100), posted after merge.
 - [x] Revised README pushed to the contribution repository.
 - [ ] Submit the course check-in with **Phase IV Complete** selected.
 
@@ -282,8 +292,17 @@ The remaining requirements cannot be completed by changing README text alone:
 | Requirement | Current evidence and next step |
 | --- | --- |
 | Valid issue-closing reference | The task came from the project's documentation TODO. Ask course staff whether this source is acceptable instead of a numbered issue; no matching issue has been established. |
-| Maintainer mention or reviewer request | Maintainer-authored improvements and merge are documented, but no mention or request is established. Supply a link to that action if it occurred; the README does not claim it did. |
 | Phase IV course check-in | Submit the repository link in the Course Portal with **Phase IV Complete** selected, then record the submission date or confirmation. |
+
+Course check-in details ready to submit:
+
+- **Repository:** https://github.com/stepheng223/librephotos-contributions
+- **Phase:** Phase IV Complete
+- **Pull request:** https://github.com/LibrePhotos/librephotos/pull/2078
+- **Status:** Merged
+- **Summary:** Removes orphaned thumbnail files after committed photo deletion while preserving files still referenced by surviving photos; includes regression tests and passing backend/style CI.
+
+Issue-source clarification for course staff: “My merged PR #2078 implements the orphaned-thumbnail cleanup TODO from the project's missing-photo documentation. I have not established a matching numbered issue. Can that documented task satisfy the issue-reference requirement for this contribution?” This clarification has not been sent and no exception is claimed.
 
 After these items are resolved, request reassessment using this updated repository. The previous grading feedback repeatedly described the PR as not submitted and the README sections as missing; the current README supplies evidence for those sections without claiming the unresolved requirements are complete.
 
@@ -307,12 +326,12 @@ A useful lesson for future contributors: a deleted database record does not nece
 
 Verified on October 6, 2026: public contribution repo and fork, substantive phase sections, initial student implementation and regression test, final full-suite/style CI success, upstream merge, final change attribution, and reflections.
 
+Completed October 9, 2026: final-diff compatibility inspection, publication and verification of the completed live PR checklist, a linked maintainer mention, and verification of the official 1.2.0 release credit. Documentation revisions are published in the contribution repository.
+
 Still requiring evidence or action:
 
 - Original numbered issue and introductory comment: absent; request course guidance for this merged documentation-TODO contribution.
-- PR description: published and verified October 6, 2026. Local description source and README now include the October 9 final-diff compatibility verification; publication of that checklist update to GitHub is not yet verified.
 - Historical student commit cadence: cannot be created retroactively.
-- Reviewer mention/request: no evidence supplied; do not claim it occurred.
 - Slack participation: not required under the contributor’s confirmed course guidance; no post is claimed.
 - Course Google Sheet and Phase I/II/IV check-ins: require confirmation or submission in the course accounts. The supplied Phase III review already awards its check-in.
 
