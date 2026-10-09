@@ -61,7 +61,7 @@ Closest related historical issue: [#19 — Manage photos](https://github.com/Lib
 | PR template/structure | Published description contains Why, What does this PR do, Issue references, Acceptance criteria, evidence, and review status. No project PR template found in inspected checkout. |
 | Closes issue reference | Gap: no matching original numbered issue established. Do not use an unrelated issue or create a retroactive claim. |
 | Why before what | Supported: published description starts with problem and investigative context. |
-| Acceptance checklist fully completed | Tests, protections, helper reuse, suite, and style checked. No-breaking-changes verification remains unchecked; full checklist credit is not yet established. |
+| Acceptance checklist fully completed | Local description checklist is complete: tests, protections, helper reuse, suite, style, and compatibility. October 9 final-diff inspection found no API/schema/dependency changes. Publication of the updated compatibility checkbox to GitHub is not yet verified. |
 | Backend before/after evidence | Initial orphan behavior and focused output documented; final full-suite/style CI links published. |
 | README PR link, summary, status | Supported: #2078, cleanup summary, Merged label. |
 | Dated feedback/response log | Supported alternative evidence: explicitly records no formal comments/reviews, submission date, maintainer-authored changes, and merge. No student response commits invented. |

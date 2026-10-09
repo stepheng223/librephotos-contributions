@@ -268,9 +268,24 @@ The substantive description was published and verified on [PR #2078](https://git
 - [x] Published a substantive PR description with problem context, changes, issue-reference limitation, acceptance checklist, and backend evidence. No project PR template was found in the inspected checkout.
 - [ ] Establish a valid issue reference for the thumbnail task if required for resubmission.
 - [x] Full backend suite and Ruff style checks passed for the final PR head; CI links recorded above.
+- [x] No breaking API or schema changes: inspected the final [PR file diff](https://github.com/LibrePhotos/librephotos/pull/2078/files) on October 9, 2026. The three changed files contain the thumbnail deletion receiver, regression tests, and missing-photo documentation; there are no migrations, model-field changes, endpoint changes, or dependency changes. The intended behavior change is removal of unreferenced thumbnail files after committed deletion. Existing full-suite CI evidence is linked in Phase III; this inspection is not a new test run.
 - [ ] Add evidence of an actual reviewer request or maintainer mention if required; merge alone does not prove this happened.
 - [x] Revised README pushed to the contribution repository.
 - [ ] Submit the course check-in with **Phase IV Complete** selected.
+
+### Resubmission Requirements
+
+The README now includes the PR link, summary, Merged status, problem context, backend evidence, a dated maintainer-activity record, all three reflection subsections, and the documented change from the original plan to the merged implementation. These address the missing README sections identified in the Unit 4 feedback.
+
+The remaining requirements cannot be completed by changing README text alone:
+
+| Requirement | Current evidence and next step |
+| --- | --- |
+| Valid issue-closing reference | The task came from the project's documentation TODO. Ask course staff whether this source is acceptable instead of a numbered issue; no matching issue has been established. |
+| Maintainer mention or reviewer request | Maintainer-authored improvements and merge are documented, but no mention or request is established. Supply a link to that action if it occurred; the README does not claim it did. |
+| Phase IV course check-in | Submit the repository link in the Course Portal with **Phase IV Complete** selected, then record the submission date or confirmation. |
+
+After these items are resolved, request reassessment using this updated repository. The previous grading feedback repeatedly described the PR as not submitted and the README sections as missing; the current README supplies evidence for those sections without claiming the unresolved requirements are complete.
 
 ## Learnings & Reflections
 
@@ -295,7 +310,7 @@ Verified on October 6, 2026: public contribution repo and fork, substantive phas
 Still requiring evidence or action:
 
 - Original numbered issue and introductory comment: absent; request course guidance for this merged documentation-TODO contribution.
-- PR description: published and verified October 6, 2026; the no-breaking-changes checkbox remains pending explicit verification.
+- PR description: published and verified October 6, 2026. Local description source and README now include the October 9 final-diff compatibility verification; publication of that checklist update to GitHub is not yet verified.
 - Historical student commit cadence: cannot be created retroactively.
 - Reviewer mention/request: no evidence supplied; do not claim it occurred.
 - Slack participation: not required under the contributor’s confirmed course guidance; no post is claimed.

@@ -2,6 +2,8 @@
 
 The body below was published and verified on PR #2078 on October 6, 2026.
 
+Local revision on October 9, 2026: completed the compatibility checklist after inspecting the final PR diff. This revision has not been verified as published to GitHub.
+
 ## Why
 
 Deleting missing photos removed their database records but left thumbnail assets on disk, consuming storage. The original implementation had no thumbnail deletion receiver. Investigation also showed that filenames are shared by image hash, so deleting a row does not necessarily make its files safe to remove.
@@ -21,7 +23,7 @@ Original task: the missing-photo documentation TODO. No matching numbered GitHub
 - [x] Cleanup reuses the existing project helper.
 - [x] Full backend suite passed for the final PR head in [GitHub Actions](https://github.com/LibrePhotos/librephotos/actions/runs/36229563136/job/108370075600).
 - [x] Backend Ruff lint/format checks passed in [GitHub Actions](https://github.com/LibrePhotos/librephotos/actions/runs/36229563194/job/108370079719).
-- [ ] No breaking changes: no API/schema change is intended; complete final verification before checking this item.
+- [x] No breaking API or schema changes: the final [PR diff](https://github.com/LibrePhotos/librephotos/pull/2078/files), inspected October 9, changes only thumbnail cleanup, regression tests, and documentation. There are no migrations, model-field changes, endpoint changes, or dependency changes. Removing unreferenced thumbnail files after committed deletion is the intended behavior change; final backend-suite CI evidence is linked above.
 
 ## Backend evidence
 
